@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1. Write a function to remove duplicate values from an array.
+      let arr = [1, 2, 2, 3, 4, 4, 6];
+      function removeDuplicates(arr) {
+        return [...new Set(arr)]; //Set object is converted to array (...spread operator)
+      }
+      console.log(removeDuplicates(arr));
+
+      //   2. Check if a given string is a palindrome (reads the same forwards and backwards).
+
+      let str = "bindu";
+      function isPalindrome(str) {
+        return str === str.split("").reverse().join("");
+      }
+      console.log(isPalindrome(str));
+
+      //   3. Generate the first `n` numbers of the Fibonacci sequence
+      let n = 10;
+      function fibonacci(n) {
+        let fibSequence = [0, 1];
+        while (fibSequence.length < n) {
+          fibSequence.push(
+            fibSequence[fibSequence.length - 1] +
+              fibSequence[fibSequence.length - 2]
+          );
+        }
+        return fibSequence;
+      }
+      console.log(fibonacci(n));
+
+      //   4. Find and return the largest number in an array.
+
+      let numb = [1, 55, 33, 48, 95, 122, 45, 58];
+      function largestNumber(numb) {
+        let res = numb.reduce((acc, curr) => (acc > curr ? acc : curr), 0);
+        return res;
+      }
+      console.log(largestNumber(numb));
+
+      //   5. Implement the FizzBuzz logic: print numbers 1 to 100, but print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both.
+      //   for (let i = 1; i <= 100; i++) {
+      //     if (i % 3 === 0 && i % 5 === 0) {
+      //       console.log("FIZZBUZZ");
+      //     } else if (i % 3 === 0) {
+      //       console.log("FIZZ");
+      //     } else if (i % 5 === 0) {
+      //       console.log("BUZZ");
+      //     }
+      //   }
+
+      // 6. Reverse the digits of a given integer while maintaining the sign.
+      let num = -1234;
+      let numbr = Math.abs(num);
+      function reverseInteger(numbr) {
+        let reversedNum = 0;
+        while (numbr > 0) {
+          reversedNum = reversedNum * 10 + (numbr % 10);
+          numbr = Math.floor(numbr / 10);
+        }
+        return reversedNum + "-";
+      }
+      console.log(reverseInteger(numbr));
+
+      //   7. Check if two given strings are anagrams (contain the same characters in a different order).
+      let str1 = "listen";
+      let str2 = "silent";
+      function areAnagrams(str1, str2) {
+        return (
+          str1.split("").sort().join("") === str2.split("").sort().join("")
+        );
+      }
+      console.log(areAnagrams(str1, str2));
+
+      //   8. Find and return the first non-repeating character in a string.
+      let string = "hhello";
+
+      function firstNonRepeatingChar(string) {
+        let charCount = [...string].reduce((acc, char) => {
+          acc[char] = (acc[char] || 0) + 1;
+          return acc;
+        }, {});
+
+        return [...string].find((char) => charCount[char] === 1) || null;
+      }
+      console.log(firstNonRepeatingChar(string));
+
+      //   9. Write a function to calculate the sum of all numbers in a nested array, handling arrays within arrays.
+      let nestedArray = [1, 2, [3, 4, 5, 6], 7, [8, 9]];
+      function sumNestedArray(arr) {
+        let arr2 = nestedArray.flat();
+        return arr2.reduce((acc, num) => acc + num, 0);
+      }
+      console.log(sumNestedArray(nestedArray));
+
+      //   10. Move all zeroes in an array to the end while keeping the order of non-zero elements.
+      let arr3 = [0, 1, 0, 3, 12, 15, 24, 85];
+      let moveZeroesToEnd = (arr3) => {
+        return arr3.filter((x) => x !== 0).concat(arr3.filter((x) => x === 0));
+      };
+      console.log(moveZeroesToEnd(arr3));
+
+      //   11. Count the number of vowels (a, e, i, o, u) in a given string.
+      let str3 = "hello world";
+      let countVowels = (str3) => {
+        let vowels = "aeiou";
+        return str3.split("").reduce((acc, char) => {
+          if (vowels.includes(char)) {
+            return acc + 1;
+          }
+          return acc;
+        }, 0);
+      };
+      console.log(countVowels(str3));
+
+      //   12. Find the missing number in a sequence of integers from 1 to `n`, where one number is missing.
+      let arr4 = [1, 2, 3, 5];
+      let findMissingNumber = (arr4) => {
+        let n = arr4.length + 1;
+        let expectedSum = Math.floor((n * (n + 1)) / 2);
+        let actualSum = arr4.reduce((acc, num) => acc + num, 0);
+        return expectedSum - actualSum;
+      };
+      console.log(findMissingNumber(arr4));
+
+      //   13. Flatten a nested array into a single-level array.
+      let nestedArray2 = [1, 2, [3, 4, 5], 5, 5, [3, 2]];
+      let flattenArray = (nestedArray2) => {
+        return nestedArray2.flat();
+      };
+      console.log(flattenArray(nestedArray2));
+
+      //   14. Find the longest word in a given string.
+      let str4 = "I love programming in javascript";
+      let findLongestWord = (str4) => {
+        return str4.split(" ").reduce((a, b) => (a.length > b.length ? a : b));
+      };
+      console.log(findLongestWord(str4));
+
+      //   15. Given an array of integers and a target sum, return the indices of the two numbers that add up to the target.
+
+      function twoSum(nums, target) {
+        for (let i = 0; i < nums.length; i++) {
+          for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] === target) {
+              return [i, j]; // Return the indices
+            }
+          }
+        }
+      }
+      console.log(twoSum([2, 70, 7, 15], 9));
+    </script>
+  </body>
+</html>
