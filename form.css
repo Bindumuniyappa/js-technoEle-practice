@@ -1,0 +1,50 @@
+  body{
+    display: flex;
+    justify-content: center;
+  } 
+.main-container{
+    background-color: beige;
+    margin: 0;
+        padding: 0;
+        display: flex;
+            justify-content: center;
+            align-items: center;
+}
+form{
+background-color: aliceblue;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+width:300px;
+}
+fieldset{
+    border:none;
+}
+label{
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+input,textarea{
+width:100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 14px;
+}
+textarea{
+    height: 80px;
+}
+button{
+    width:100%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border:none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: goldenrod;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.Converting Kilometers to miles and celsius to fahrenheit
+      //   let num = 20;
+      //   let miles = 0.621;
+      let milesConversion = (num, miles) => num * miles; ///kilometers to miles
+      console.log(milesConversion(20, 0.621));
+      let fahrenhitCoversion = (celsius) => {
+        let fahrenheit = celsius * (9 / 5) + 32;
+        return fahrenheit + "F";
+      };
+      let fahrenheitRes = fahrenhitCoversion(21);
+      console.log(fahrenheitRes);
+
+      //2.Checking any numbers nature if it is positive ,negative or zero
+      let numPosNegZero = (num) => {
+        if (num > 0) {
+          console.log("Positive Number");
+        } else if (num < 0) {
+          console.log("Negative Number");
+        } else {
+          console.log("Zero");
+        }
+      };
+      numPosNegZero(0);
+
+      //3.Generating a random number
+
+      let GeneratingRandomNum = () => {
+        let generate = Math.floor(Math.random() * 10000) + 10;
+        console.log(generate);
+      };
+      GeneratingRandomNum();
+
+      //4.Checking if a number is odd or even and checking if a number is prime or not
+      let evenOrOdd = (num) => {
+        if (num % 2 == 0) {
+          console.log("Even Number");
+        } else {
+          console.log("Odd Number");
+        }
+      };
+      evenOrOdd(25);
+      //Prime or Not
+      let primeOrNot = (num) => {
+        if (num < 2) {
+          console.log("Not a prime number");
+        }
+        for (let i = 3; i <= num; i++) {
+          if (num % i === 0) {
+            console.log("Not a Prime Number");
+            break;
+          } else {
+            console.log("Prime Number");
+          }
+        }
+      };
+      primeOrNot(12);
+
+      //5.Finding largest number among three numbers
+      let largestOfThreeNumbers = (n1, n2, n3) => {
+        if (n1 > n2 && n1 > n3) {
+          console.log(n1, " is largest");
+        } else if (n2 > n1 && n2 > n3) {
+          console.log((n2, " is largest"));
+        } else {
+          console.log(n3, " is largest");
+        }
+      };
+      largestOfThreeNumbers(5, 2, 6);
+
+      //other method
+      let arr = [54, 225, 458];
+      let largestOfThree = (arr) => {
+        console.log(Math.max(...arr));
+      };
+      largestOfThree(arr);
+
+      //6.Finding factorial of any number
+
+      let fact = 1;
+      let factorial = (num) => {
+        for (let i = 1; i <= num; i++) {
+          fact = fact * i;
+        }
+        console.log(fact);
+      };
+      factorial(6);
+
+      //7.Finding Armstrong number in any interval
+      let n = 371;
+      let num = n;
+      let sum = 0;
+      while (n > 0) {
+        rem = n % 10;
+        sum = sum + rem * rem * rem;
+        n = Math.floor(n / 10);
+      }
+      console.log(sum);
+      if (num === sum) {
+        console.log("Armstrong Number");
+      } else {
+        console.log("Not a Armstrong Number");
+      }
+
+      //8.Finding if numbers have the same last digit
+      let number = 2522;
+      let str = number.toString();
+      let sameOrNot = str.charAt(0) === str.charAt(str.length - 1);
+      console.log(sameOrNot);
+
+      //9.Checking palindrome
+
+      let palinNumber = 1222;
+      let strPalin = palinNumber.toString();
+      let res = strPalin.split("").reverse().join("");
+      if (strPalin === res) {
+        console.log(res, "Palindrome");
+      } else {
+        console.log(res, "Not a palindrome");
+      }
+
+      //10.Finding fcators of numbers
+      let factorNumb = 24;
+      for (let i = 1; i < factorNumb; i++) {
+        if (factorNumb % i == 0) {
+          console.log(i);
+        }
+      }
+
+      //12.printing fibonacci series
+
+      let interval = 15;
+      let sequence = [0, 1];
+      while (sequence.length < interval) {
+        sequence.push(
+          sequence[sequence.length - 1] + sequence[sequence.length - 2]
+        );
+      }
+      console.log(sequence);
+
+      //13.replacing charecters of a string
+      let string2 = "Javascript is programming language";
+      let stringRelace = string2.replace("programming", "scripting");
+      console.log(stringRelace);
+
+      //14.sorting words in alphabetical order
+      let stringSort = "bjdvvhvjedbgjedb";
+      let sortRes = stringSort.split("").sort().join("");
+      console.log(sortRes);
+    </script>
+  </body>
+</html>
